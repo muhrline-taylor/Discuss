@@ -1,3 +1,3 @@
-defmodule DiscussWeb.PageView do
-  use DiscussWeb, :view
+defmodule Discuss.Web.PageView do
+  use Discuss.Web, :view
 end

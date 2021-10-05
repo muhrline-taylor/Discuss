@@ -1,5 +1,5 @@
-defmodule DiscussWeb.LayoutViewTest do
-  use DiscussWeb.ConnCase, async: true
+defmodule Discuss.Web.LayoutViewTest do
+  use Discuss.Web.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper

@@ -1,5 +1,5 @@
-defmodule DiscussWeb.PageController do
-  use DiscussWeb, :controller
+defmodule Discuss.Web.PageController do
+  use Discuss.Web, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

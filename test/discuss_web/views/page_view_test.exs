@@ -1,3 +1,3 @@
-defmodule DiscussWeb.PageViewTest do
-  use DiscussWeb.ConnCase, async: true
+defmodule Discuss.Web.PageViewTest do
+  use Discuss.Web.ConnCase, async: true
 end

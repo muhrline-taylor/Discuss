@@ -1,10 +1,10 @@
-defmodule DiscussTopic do
-  use DiscussWeb, :model
+defmodule Discuss.Topic do
+  use Discuss.Web, :model
 
   schema "topics" do
     field :title, :string
     # Many to One
-    belongs_to :user, DiscussUser
+    belongs_to :user, Discuss.User
   end
 
   def changeset(struct, params \\ %{}) do

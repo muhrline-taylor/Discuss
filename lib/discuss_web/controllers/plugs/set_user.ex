@@ -4,9 +4,9 @@ defmodule DiscussPlugs.SetUser do
 
   alias Discuss.Repo
 
-  alias DiscussUser
+  alias Discuss.User
 
-  # alias DiscussWeb.Router.Helpers, as: Routes
+  # alias Discuss.Web.Router.Helpers, as: Routes
 
   def init(_params) do
 
@@ -18,7 +18,7 @@ defmodule DiscussPlugs.SetUser do
     user_id = get_session(conn, :user_id)
 
     cond do
-      user = user_id && Repo.get(DiscussUser, user_id) ->
+      user = user_id && Repo.get(Discuss.User, user_id) ->
         assign(conn, :user, user)
       true ->
         assign(conn, :user, nil)

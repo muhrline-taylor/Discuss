@@ -1,4 +1,4 @@
-defmodule DiscussWeb.Endpoint do
+defmodule Discuss.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :discuss
 
   # The session will be stored in the cookie and signed,
@@ -10,7 +10,7 @@ defmodule DiscussWeb.Endpoint do
     signing_salt: "LtxwCP47"
   ]
 
-  socket "/socket", DiscussWeb.UserSocket,
+  socket "/socket", Discuss.Web.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -50,5 +50,5 @@ defmodule DiscussWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug DiscussWeb.Router
+  plug Discuss.Web.Router
 end

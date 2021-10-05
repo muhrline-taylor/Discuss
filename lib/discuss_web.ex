@@ -1,12 +1,12 @@
-defmodule DiscussWeb do
+defmodule Discuss.Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use DiscussWeb, :controller
-      use DiscussWeb, :view
+      use Discuss.Web, :controller
+      use Discuss.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,12 +19,12 @@ defmodule DiscussWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: DiscussWeb
+      use Phoenix.Controller, namespace: Discuss.Web
 
       # Anything imported here will import all fn's associated into all controllers
       import Plug.Conn
-      import DiscussWeb.Gettext
-      alias DiscussWeb.Router.Helpers, as: Routes
+      import Discuss.Web.Gettext
+      alias Discuss.Web.Router.Helpers, as: Routes
     end
   end
 
@@ -42,7 +42,7 @@ defmodule DiscussWeb do
     quote do
       use Phoenix.View,
         root: "lib/discuss_web/templates",
-        namespace: DiscussWeb
+        namespace: Discuss.Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -64,7 +64,7 @@ defmodule DiscussWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import DiscussWeb.Gettext
+      import Discuss.Web.Gettext
     end
   end
 
@@ -76,9 +76,9 @@ defmodule DiscussWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import DiscussWeb.ErrorHelpers
-      import DiscussWeb.Gettext
-      alias DiscussWeb.Router.Helpers, as: Routes
+      import Discuss.Web.ErrorHelpers
+      import Discuss.Web.Gettext
+      alias Discuss.Web.Router.Helpers, as: Routes
     end
   end
 

@@ -1,12 +1,12 @@
-defmodule DiscussUser do
-  use DiscussWeb, :model
+defmodule Discuss.User do
+  use Discuss.Web, :model
 
   schema "users" do
     field :email, :string
     field :provider, :string
     field :token, :string
     # One to Many
-    has_many :topics, DiscussTopic
+    has_many :topics, Discuss.Topic
 
     timestamps()
   end

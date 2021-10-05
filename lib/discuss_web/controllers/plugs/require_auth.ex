@@ -2,7 +2,7 @@ defmodule DiscussPlugs.RequireAuth do
   import Plug.Conn
   import Phoenix.Controller
 
-  alias DiscussWeb.Router.Helpers, as: Routes
+  alias Discuss.Web.Router.Helpers, as: Routes
 
 
 

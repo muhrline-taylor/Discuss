@@ -1,4 +1,4 @@
-defmodule DiscussWeb.Telemetry do
+defmodule Discuss.Web.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -47,7 +47,7 @@ defmodule DiscussWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {DiscussWeb, :count_users, []}
+      # {Discuss.Web, :count_users, []}
     ]
   end
 end
