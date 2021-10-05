@@ -3,6 +3,8 @@ defmodule DiscussTopic do
 
   schema "topics" do
     field :title, :string
+    # Many to One
+    belongs_to :user, DiscussUser
   end
 
   def changeset(struct, params \\ %{}) do
