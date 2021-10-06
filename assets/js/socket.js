@@ -11,7 +11,7 @@ const createSocket = (topicId) => {
   channel
     .join()
     .receive("ok", (resp) => {
-      // console.log("Joined successfully", resp.comments);
+      console.log(resp.comments);
       renderComments(resp.comments);
     })
     .receive("error", (resp) => {
