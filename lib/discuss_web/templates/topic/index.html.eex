@@ -9,12 +9,9 @@
         <li class="collection-item">
             <%= link topic.title, to: Routes.topic_path(@conn, :show, topic) %>
 
-            <% IO.puts("+++++++") %>
-            <% IO.inspect(@conn.assigns.user.id) %>
-            <% IO.puts("+++++++") %>
-            <% IO.inspect(topic.user_id) %>
 
-            <%= if @conn.assigns.user != nil && @conn.assigns.user.id === topic.user_id do %>
+
+            <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil && @conn.assigns.user.id === topic.user_id do %>
             <div class="right">
                 <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
                 <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
