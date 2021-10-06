@@ -1,5 +1,5 @@
-defmodule DiscussWeb.Router do
-  use DiscussWeb, :router
+defmodule Discuss.Web.Router do
+  use Discuss.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,7 +14,7 @@ defmodule DiscussWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", DiscussWeb do
+  scope "/", Discuss.Web do
     pipe_through :browser
 
     # get "/", TopicController, :index
@@ -28,7 +28,7 @@ defmodule DiscussWeb.Router do
 
   end
 
-  scope "/auth", DiscussWeb do
+  scope "/auth", Discuss.Web do
     pipe_through :browser
 
     get "/signout", AuthController, :signout
@@ -37,7 +37,7 @@ defmodule DiscussWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", DiscussWeb do
+  # scope "/api", Discuss.Web do
   #   pipe_through :api
   # end
 
@@ -53,7 +53,7 @@ defmodule DiscussWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: DiscussWeb.Telemetry
+      live_dashboard "/dashboard", metrics: Discuss.Web.Telemetry
     end
   end
 end

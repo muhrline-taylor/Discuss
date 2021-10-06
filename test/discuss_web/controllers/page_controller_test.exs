@@ -1,5 +1,5 @@
-defmodule DiscussWeb.PageControllerTest do
-  use DiscussWeb.ConnCase
+defmodule Discuss.Web.PageControllerTest do
+  use Discuss.Web.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

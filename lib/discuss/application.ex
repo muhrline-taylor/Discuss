@@ -10,11 +10,11 @@ defmodule Discuss.Application do
       # Start the Ecto repository
       Discuss.Repo,
       # Start the Telemetry supervisor
-      DiscussWeb.Telemetry,
+      Discuss.Web.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Discuss.PubSub},
       # Start the Endpoint (http/https)
-      DiscussWeb.Endpoint
+      Discuss.Web.Endpoint
       # Start a worker by calling: Discuss.Worker.start_link(arg)
       # {Discuss.Worker, arg}
     ]
@@ -28,7 +28,7 @@ defmodule Discuss.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    DiscussWeb.Endpoint.config_change(changed, removed)
+    Discuss.Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

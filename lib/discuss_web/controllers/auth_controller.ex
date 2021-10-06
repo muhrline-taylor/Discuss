@@ -1,8 +1,8 @@
-defmodule DiscussWeb.AuthController do
-  use DiscussWeb, :controller
+defmodule Discuss.Web.AuthController do
+  use Discuss.Web, :controller
   plug Ueberauth
 
-  alias DiscussUser
+  alias Discuss.User
   # alias Discuss.User
 
   alias Discuss.Repo
@@ -14,7 +14,7 @@ defmodule DiscussWeb.AuthController do
     auth_token = auth.credentials.token
 
     user_params = %{token: auth_token, email: auth.info.email, provider: "github"}
-    changeset = DiscussUser.changeset(%DiscussUser{}, user_params)
+    changeset = Discuss.User.changeset(%Discuss.User{}, user_params)
 
     signin(conn, changeset)
 
@@ -41,7 +41,7 @@ defmodule DiscussWeb.AuthController do
   end
 
   defp insert_or_update_user(changeset) do
-    case Repo.get_by(DiscussUser, email: changeset.changes.email) do
+    case Repo.get_by(Discuss.User, email: changeset.changes.email) do
       nil ->
         Repo.insert(changeset)
       user ->

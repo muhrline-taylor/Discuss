@@ -1,5 +1,5 @@
-defmodule DiscussWeb.ErrorView do
-  use DiscussWeb, :view
+defmodule Discuss.Web.ErrorView do
+  use Discuss.Web, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
