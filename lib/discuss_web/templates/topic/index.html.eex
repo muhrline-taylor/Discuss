@@ -8,21 +8,17 @@
     <%= for topic <- @topics do %>
         <li class="collection-item">
             <%= link topic.title, to: Routes.topic_path(@conn, :show, topic) %>
-
-
-
-            <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil && @conn.assigns.user.id === topic.user_id do %>
             <div class="right">
                 <%= if Enum.member?(@favorite_topics, topic) do%>
 
                 <% else %>
                     <%= link "Favorite", to: Routes.favorite_topic_path(@conn, :favorite_topic, topic.id, @conn.assigns.user.id) %>
                 <% end %>
-                <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
-                <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
-            </div>
+                <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil && @conn.assigns.user.id === topic.user_id do %>
+                    <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
+                    <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
             <% end %>
-
+            </div>
 
         </li>
     <% end %>
@@ -36,7 +32,9 @@
                 <%= link favorite_topic.title, to: Routes.topic_path(@conn, :show, favorite_topic) %>
             <% end %>
             <div class="right">
+                <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil do%>
                 <%= link "Unfavorite", to: Routes.favorite_topic_path(@conn, :delete, favorite_topic.id, @conn.assigns.user.id), method: :delete %>
+                <% end %>
             </div>
         </li>
     <% end %>
