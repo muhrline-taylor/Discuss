@@ -8,6 +8,10 @@ defmodule Discuss.FavoriteTopics do
     timestamps()
   end
 
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:topic_id, :user_id])
+  end
 
 
 end

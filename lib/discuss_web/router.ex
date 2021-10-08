@@ -37,9 +37,9 @@ defmodule Discuss.Web.Router do
   end
 
   scope "/favorite", Discuss.Web do
-  pipe_through :browser
+    pipe_through :browser
 
-  get "/", FavoriteTopicController, :favorite_topic
+    get "/", FavoriteTopicController, :favorite_topic
   end
 
   # Other scopes may use custom stacks.
