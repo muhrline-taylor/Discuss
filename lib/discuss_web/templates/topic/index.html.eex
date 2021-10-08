@@ -13,6 +13,11 @@
 
             <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil && @conn.assigns.user.id === topic.user_id do %>
             <div class="right">
+                <%= if Enum.member?(@favorite_topics, topic) do%>
+
+                <% else %>
+                    <%= link "Favorite", to: "/favorite" %>
+                <% end %>
                 <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
                 <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
             </div>

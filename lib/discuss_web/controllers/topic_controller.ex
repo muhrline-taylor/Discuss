@@ -120,4 +120,8 @@ defmodule Discuss.Web.TopicController do
     end
   end
 
+  def favorite(conn, params) do
+    IO.puts("into favorite")
+  end
+
 end
