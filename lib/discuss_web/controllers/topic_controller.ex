@@ -52,9 +52,7 @@ defmodule Discuss.Web.TopicController do
       |> Repo.preload(:favorite_topics)
 
     favorite_topics = user.favorite_topics
-    IO.puts("++++++")
-    IO.inspect(favorite_topics)
-    IO.puts("++++++")
+
     render(conn, "index.html", topics: topics, favorite_topics: favorite_topics)
   end
 
@@ -120,8 +118,6 @@ defmodule Discuss.Web.TopicController do
     end
   end
 
-  def favorite(conn, params) do
-    IO.puts("into favorite")
-  end
+
 
 end
