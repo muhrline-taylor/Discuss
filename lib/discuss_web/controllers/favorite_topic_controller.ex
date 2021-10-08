@@ -33,5 +33,27 @@ defmodule Discuss.Web.FavoriteTopicController do
 
   end
 
+  def delete(conn, %{"favorite_topic_id" => raw_topic_id, "user_id" => raw_user_id}) do
+    {topic_id, _q} = Integer.parse(raw_topic_id)
+    {user_id, _q} = Integer.parse(raw_user_id)
+
+    favorite_topics = Repo.all(Discuss.FavoriteTopics)
+
+
+      for favorite_topic <- favorite_topics do
+
+
+        if favorite_topic.user_id === user_id && favorite_topic.topic_id === topic_id do
+          IO.puts("FOUND THE FAVORITE TOPIC")
+          Repo.delete!(favorite_topic)
+        end
+
+      end
+
+
+
+    redirect(conn, to: Routes.topic_path(conn, :index))
+  end
+
 
 end

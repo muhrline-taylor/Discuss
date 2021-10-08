@@ -35,6 +35,9 @@
             <%= if @conn.assigns.user != nil && @conn.assigns.user.id != nil do%>
                 <%= link favorite_topic.title, to: Routes.topic_path(@conn, :show, favorite_topic) %>
             <% end %>
+            <div class="right">
+                <%= link "Unfavorite", to: Routes.favorite_topic_path(@conn, :delete, favorite_topic.id, @conn.assigns.user.id), method: :delete %>
+            </div>
         </li>
     <% end %>
 </ul>

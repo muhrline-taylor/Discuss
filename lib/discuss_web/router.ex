@@ -40,6 +40,7 @@ defmodule Discuss.Web.Router do
     pipe_through :browser
 
     get "/:topic_id/:user_id", FavoriteTopicController, :favorite_topic
+    delete "/delete/:favorite_topic_id/:user_id", FavoriteTopicController, :delete
   end
 
   # Other scopes may use custom stacks.

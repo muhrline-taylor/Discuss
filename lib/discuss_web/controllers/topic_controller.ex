@@ -52,6 +52,7 @@ defmodule Discuss.Web.TopicController do
       |> Repo.preload(:favorite_topics)
 
     favorite_topics = user.favorite_topics
+    raw_favorite_topics = Repo.all(Discuss.FavoriteTopics)
 
     render(conn, "index.html", topics: topics, favorite_topics: favorite_topics)
   end
