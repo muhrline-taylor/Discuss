@@ -33,5 +33,14 @@ defmodule Discuss.Web.FavoriteTopicController do
 
   end
 
+  def delete(conn, %{"favorite_topic_id" => topic_id, "user_id" => user_id}) do
+    IO.puts("+++++")
+    IO.inspect(topic_id)
+    IO.inspect(user_id)
+    IO.puts("+++++")
+
+    redirect(conn, to: Routes.topic_path(conn, :index))
+  end
+
 
 end
