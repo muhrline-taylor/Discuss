@@ -10,6 +10,8 @@ defmodule Discuss.User do
     # One to Many
     has_many :topics, Discuss.Topic
     has_many :comments, Discuss.Comment
+    many_to_many :favorite_topics, Discuss.Topic,
+      join_through: Discuss.FavoriteTopics
 
     timestamps()
   end

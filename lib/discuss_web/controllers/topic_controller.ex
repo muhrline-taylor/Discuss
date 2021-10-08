@@ -45,9 +45,17 @@ defmodule Discuss.Web.TopicController do
   end
 
   def index(conn, _params) do
-    IO.inspect(conn.assigns)
     topics = Repo.all(Discuss.Topic)
-    render(conn, "index.html", topics: topics)
+    user =
+      Discuss.User
+      |> Repo.get(conn.assigns.user.id)
+      |> Repo.preload(:favorite_topics)
+
+    favorite_topics = user.favorite_topics
+    IO.puts("++++++")
+    IO.inspect(favorite_topics)
+    IO.puts("++++++")
+    render(conn, "index.html", topics: topics, favorite_topics: favorite_topics)
   end
 
   def show(conn, %{"id" => topic_id}) do
