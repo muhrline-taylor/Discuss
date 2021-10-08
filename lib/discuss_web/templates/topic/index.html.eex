@@ -16,7 +16,7 @@
                 <%= if Enum.member?(@favorite_topics, topic) do%>
 
                 <% else %>
-                    <%= link "Favorite", to: Routes.favorite_topic_path(@conn, :favorite_topic) %>
+                    <%= link "Favorite", to: Routes.favorite_topic_path(@conn, :favorite_topic, topic.id, @conn.assigns.user.id) %>
                 <% end %>
                 <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic) %>
                 <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic), method: :delete %>
