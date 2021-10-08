@@ -36,6 +36,12 @@ defmodule Discuss.Web.Router do
     get "/:provider/callback", AuthController, :callback
   end
 
+  scope "/favorite", Discuss.Web do
+    pipe_through :browser
+
+    get "/:topic_id/:user_id", FavoriteTopicController, :favorite_topic
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Discuss.Web do
   #   pipe_through :api
